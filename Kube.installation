@@ -1,0 +1,22 @@
+#installtion of kube on ubuntu server 
+#Install docker and make sure docker is active and running.
+-sudo apt update
+-sudo apt install docker.io -y
+-sudo systemctl enable docker
+-sudo systemctl status docker
+-sudo systemctl start docker
+#installation of kube
+sudo apt-get update
+sudo apt-get install -y apt-transport-https ca-certificates curl
+sudo curl -fsSLo /usr/share/keyrings/kubernetes-archive-keyring.gpg https://packages.cloud.google.com/apt/doc/apt-key.gpg
+echo "deb [signed-by=/usr/share/keyrings/kubernetes-archive-keyring.gpg] https://apt.kubernetes.io/ kubernetes-xenial main" | sudo tee /etc/apt/sources.list.d/kubernetes.list
+# using the atp to install 
+sudo apt-get update
+sudo apt-get install -y kubelet kubeadm kubectl
+sudo apt-mark hold kubelet kubeadm kubectl
+#Using snap to insall
+sudo snap install kubeadm --classic
+sudo snap install kubectl --classic
+sudo snap install kubelet --classic
+
+
